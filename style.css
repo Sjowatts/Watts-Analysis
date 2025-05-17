@@ -2,7 +2,7 @@ body.light-theme {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #010849;
+  background-color: #ffffff;
   color: #f4f4f4;
 }
 .top-banner {
@@ -14,7 +14,7 @@ body.light-theme {
 }
 header {
   text-align: center;
-  background: #010849;
+  background: #ffffff;
   border-bottom: 4px solid #28ff25ac;
   padding: 20px;
 }
@@ -44,7 +44,7 @@ footer {
   text-align: center;
   padding: 20px;
   background: #28ff25ac;
-  color: #28ff25ac;
+  color: #ffffff;
   font-size: 14px;
   border-top: 2px solid #28ff25ac;
 }
