@@ -6,7 +6,7 @@ body.light-theme {
   color: #f4f4f4;
 }
 .top-banner {
-  background-color: #f8c000;
+  background-color: #00f832;
   color: #000;
   text-align: center;
   padding: 12px;
@@ -15,17 +15,17 @@ body.light-theme {
 header {
   text-align: center;
   background: #000;
-  border-bottom: 4px solid #f8c000;
+  border-bottom: 4px solid #00f832;
   padding: 20px;
 }
 .site-title {
-  color: #f8c000;
+  color: #00f832;
   margin: 0;
   font-size: 2rem;
 }
 .social-icons a {
   margin: 0 10px;
-  color: #f8c000;
+  color: #00f832;
   text-decoration: none;
 }
 nav {
@@ -38,13 +38,13 @@ nav a {
   font-weight: bold;
 }
 nav a:hover {
-  color: #f8c000;
+  color: #00f832;
 }
 footer {
   text-align: center;
   padding: 20px;
   background: #000;
-  color: #f8c000;
+  color: #00f832;
   font-size: 14px;
-  border-top: 2px solid #f8c000;
+  border-top: 2px solid #00f832;
 }
