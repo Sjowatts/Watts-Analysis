@@ -2,7 +2,7 @@ body.light-theme {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #000000;
+  background-color: #001aff;
   color: #f4f4f4;
 }
 .top-banner {
@@ -14,7 +14,7 @@ body.light-theme {
 }
 header {
   text-align: center;
-  background: #000;
+  background: #001aff;
   border-bottom: 4px solid #00f832;
   padding: 20px;
 }
@@ -43,7 +43,7 @@ nav a:hover {
 footer {
   text-align: center;
   padding: 20px;
-  background: #000;
+  background: #001aff;
   color: #00f832;
   font-size: 14px;
   border-top: 2px solid #00f832;
