@@ -2,11 +2,11 @@ body.light-theme {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #001aff;
+  background-color: #001aff83;
   color: #f4f4f4;
 }
 .top-banner {
-  background-color: #00f832;
+  background-color: #28ff25ac;
   color: #000;
   text-align: center;
   padding: 12px;
@@ -14,18 +14,18 @@ body.light-theme {
 }
 header {
   text-align: center;
-  background: #001aff;
-  border-bottom: 4px solid #00f832;
+  background: #001aff83;
+  border-bottom: 4px solid #28ff25ac;
   padding: 20px;
 }
 .site-title {
-  color: #00f832;
+  color: #28ff25ac;
   margin: 0;
   font-size: 2rem;
 }
 .social-icons a {
   margin: 0 10px;
-  color: #00f832;
+  color: #28ff25ac;
   text-decoration: none;
 }
 nav {
@@ -38,13 +38,13 @@ nav a {
   font-weight: bold;
 }
 nav a:hover {
-  color: #00f832;
+  color: #28ff25ac;
 }
 footer {
   text-align: center;
   padding: 20px;
-  background: #001aff;
-  color: #00f832;
+  background: #28ff25ac;
+  color: #28ff25ac;
   font-size: 14px;
-  border-top: 2px solid #00f832;
+  border-top: 2px solid #28ff25ac;
 }
