@@ -1,61 +1,84 @@
-body.light-theme {
+/* General body styling */
+body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  background: #0fc366;
-  color: #ffffff;
+  background: #0b0c2a; /* Dark navy background */
+  color: #f0f0f0;       /* Light text for readability */
 }
 
+/* Header with centered title and green banner */
 header {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  background-color: #0018f3;
-  padding: 20px 40px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  background-color: #0fc366; /* Green highlight banner */
+  color: white;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+header h1 {
+  font-size: 2rem;
+  margin: 10px 0;
+}
+
+/* Logo if used */
 .logo {
   height: 60px;
+  margin-bottom: 10px;
+}
+
+/* Navigation styling */
+nav {
+  margin-top: 10px;
 }
 
 nav a {
   margin: 0 15px;
   text-decoration: none;
-  color: #111;
-  font-weight: 500;
-  transition: color 0.2s;
+  color: #0b0c2a;
+  font-weight: 600;
+  background-color: #f0f0f0;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
 }
 
 nav a:hover,
 nav a.active {
-  color: #ffffff;
-  text-decoration: underline;
+  background-color: #0b0c2a;
+  color: #0fc366;
+  text-decoration: none;
 }
 
+/* Main content layout */
 main {
-  padding: 40px;
-  max-width: 800px;
+  padding: 40px 20px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
+/* Footer design */
 footer {
   text-align: center;
   padding: 20px;
   background-color: #0fc366;
-  color: #666;
+  color: #0b0c2a;
   font-size: 14px;
   margin-top: 40px;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #eee;
 }
 
+/* Lists */
 ul {
   padding-left: 20px;
   line-height: 1.6;
 }
 
+/* General links */
 a {
-  color: #0077cc;
+  color: #0fc366;
 }
 a:hover {
   text-decoration: underline;
