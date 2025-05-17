@@ -3,7 +3,7 @@ body.light-theme {
   margin: 0;
   padding: 0;
   background: #0fc366;
-  color: #111111;
+  color: #ffffff;
 }
 
 header {
@@ -29,7 +29,7 @@ nav a {
 
 nav a:hover,
 nav a.active {
-  color: #0077cc;
+  color: #ffffff;
   text-decoration: underline;
 }
 
@@ -42,7 +42,7 @@ main {
 footer {
   text-align: center;
   padding: 20px;
-  background-color: #f1f1f1;
+  background-color: #0fc366;
   color: #666;
   font-size: 14px;
   margin-top: 40px;
