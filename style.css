@@ -14,7 +14,7 @@ body.light-theme {
 }
 header {
   text-align: center;
-  background: #ffffff;
+  background: #000000;
   border-bottom: 4px solid #28ff25ac;
   padding: 20px;
 }
@@ -33,7 +33,7 @@ nav {
 }
 nav a {
   margin: 0 15px;
-  color: #f4f4f4;
+  color: #01065d;
   text-decoration: none;
   font-weight: bold;
 }
