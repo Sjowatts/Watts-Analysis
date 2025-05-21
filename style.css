@@ -50,9 +50,11 @@ footer {
 }
 /* Custom header logo styling */
 .site-logo {
-  max-width: 220px;  /* Limit width */
+  max-width: 220px;       /* Keeps logo similar to previous text size */
+  width: 100%;
   height: auto;
-  margin-bottom: 10px;
+  margin: 10px auto 0 auto;  /* Centered horizontally */
+  display: block;
 }
 .social-icon {
   width: 20px;
