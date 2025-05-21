@@ -1,68 +1,74 @@
-body.light-theme {
-  font-family: Arial, sans-serif;
+
+html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #ffffff;
-  color: #000000;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+  background-color: #b3cde0;
+  color: #011f4b;
 }
-.top-banner {
-  background-color: #0d3b85;
-  color: #000000;
-  text-align: center;
-  padding: 12px;
-  font-weight: bold;
-}
+
 header {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: #b3cde0;
-  padding: 10px 20px;        /* reduced padding top/bottom */
+  padding: 10px 20px;
   border-bottom: 4px solid #005b96;
   position: relative;
 }
-.site-title {
-  color: #0d3b85;
-  margin: 0;
-  font-size: 2rem;
-}
-.social-icons a {
-  margin: 0 10px;
-  color: #0d3b85;
-  text-decoration: none;
-}
-nav {
-  margin-top: 10px;
-}
-nav a {
-  margin: 0 15px;
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: bold;
-}
-nav a:hover {
-  color: #0d3b85;
-}
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #0d3b85;
-  color: #ffffff;
-  font-size: 14px;
-  border-top: 2px solid #0d3b85;
-}
-/* Custom header logo styling */
+
 .site-logo {
-  max-width: 220px;       /* Keeps logo similar to previous text size */
+  max-width: 220px;
   width: 100%;
   height: auto;
-  margin: 10px auto 0 auto;  /* Centered horizontally */
+  margin: 4px auto;
   display: block;
 }
+
 .social-icon {
   width: 20px;
   height: 20px;
   vertical-align: middle;
   margin-left: 5px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px 0;
+}
+
+nav a {
+  margin: 0 12px;
+  text-decoration: none;
+  color: #03396c;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+nav a:hover,
+nav a.active {
+  color: #005b96;
+  text-decoration: underline;
+}
+
+main {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  flex: 1;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #011f4b;
+  color: #b3cde0;
+  font-size: 14px;
+  border-top: 2px solid #005b96;
 }
