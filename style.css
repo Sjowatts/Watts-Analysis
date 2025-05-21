@@ -48,3 +48,9 @@ footer {
   font-size: 14px;
   border-top: 2px solid #0d3b85;
 }
+/* Custom header logo styling */
+.site-logo {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
