@@ -6,7 +6,7 @@ body.light-theme {
   color: #000000;
 }
 .top-banner {
-  background-color: #28ff25ac;
+  background-color: #0d3b85;
   color: #000;
   text-align: center;
   padding: 12px;
@@ -15,17 +15,17 @@ body.light-theme {
 header {
   text-align: center;
   background: #000000;
-  border-bottom: 4px solid #28ff25ac;
+  border-bottom: 4px solid #0d3b85;
   padding: 20px;
 }
 .site-title {
-  color: #28ff25ac;
+  color: #0d3b85;
   margin: 0;
   font-size: 2rem;
 }
 .social-icons a {
   margin: 0 10px;
-  color: #28ff25ac;
+  color: #0d3b85;
   text-decoration: none;
 }
 nav {
@@ -38,13 +38,13 @@ nav a {
   font-weight: bold;
 }
 nav a:hover {
-  color: #28ff25ac;
+  color: #0d3b85;
 }
 footer {
   text-align: center;
   padding: 20px;
-  background: #28ff25ac;
+  background: #0d3b85;
   color: #ffffff;
   font-size: 14px;
-  border-top: 2px solid #28ff25ac;
+  border-top: 2px solid #0d3b85;
 }
