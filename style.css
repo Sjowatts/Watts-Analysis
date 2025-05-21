@@ -3,11 +3,11 @@ body.light-theme {
   margin: 0;
   padding: 0;
   background-color: #ffffff;
-  color: #1c6609;
+  color: #000000;
 }
 .top-banner {
   background-color: #0d3b85;
-  color: #000;
+  color: #1c6609;
   text-align: center;
   padding: 12px;
   font-weight: bold;
