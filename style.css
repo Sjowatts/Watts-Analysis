@@ -13,10 +13,14 @@ body.light-theme {
   font-weight: bold;
 }
 header {
-  text-align: center;
-  background: #b3cde0;
-  border-bottom: 4px solid #0d3b85;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #b3cde0;
+  padding: 10px 20px;        /* reduced padding top/bottom */
+  border-bottom: 4px solid #005b96;
+  position: relative;
 }
 .site-title {
   color: #0d3b85;
