@@ -7,14 +7,14 @@ body.light-theme {
 }
 .top-banner {
   background-color: #0d3b85;
-  color: #1c6609;
+  color: #000000;
   text-align: center;
   padding: 12px;
   font-weight: bold;
 }
 header {
   text-align: center;
-  background: #000000;
+  background: #b3cde0;
   border-bottom: 4px solid #0d3b85;
   padding: 20px;
 }
