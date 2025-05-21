@@ -15,7 +15,7 @@ body.light-theme {
 header {
   text-align: center;
   background: #b3cde0;
-  border-bottom: 4px solid #0d3b85;
+  border-bottom: 12px solid #0d3b85;
   padding: 20px;
 }
 .site-title {
