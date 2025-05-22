@@ -89,3 +89,35 @@ footer {
   font-size: 14px;
   border-top: 2px solid #005b96;
 }
+.tile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.tile {
+  background-color: #03396c;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 20px;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
+
+.tile:hover {
+  background-color: #005b96;
+  transform: translateY(-5px);
+}
+
+.tile h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  color: #b3cde0;
+}
+
+.tile p {
+  margin-bottom: 0;
+  font-size: 0.95rem;
+}
