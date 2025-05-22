@@ -48,20 +48,72 @@
         <button onclick="filterTiles('squash')">Squash</button>
         <button onclick="filterTiles('rugby')">Rugby</button>
         <button onclick="filterTiles('basketball')">Basketball</button>
+        <button onclick="filterTiles('netball')">Netball</button>
+        <button onclick="filterTiles('cricket')">Cricket</button>
+        <button onclick="filterTiles('taekwondo')">Taekwondo</button>
       </div>
       <div class="tile-grid">
 
         <a class="tile football" href="project-liverpool-fc-academy-analysis.html">
-          <img src="assets/thumbnails/liverpool.png" class="tile-thumb" alt="Liverpool">
+          <img src="assets/thumbnails/liverpool.png" class="tile-thumb" alt="Liverpool FC Academy Analysis">
           <h3>Liverpool FC Academy Analysis</h3>
           <p>Tactical and opposition scouting reports for U15-U16 teams with video insight.</p>
         </a>
-        <a class="tile squash" href="project-squash-dissertation-rally-intensity.html">
-          <img src="assets/thumbnails/squash.png" class="tile-thumb" alt="Squash">
-          <h3>Squash Dissertation: Rally Intensity</h3>
-          <p>Time and shot-based intensity metrics from PSA matches with ranking comparisons.</p>
+    
+        <a class="tile football" href="project-cheltenham-town-fc-u18-analysis.html">
+          <img src="assets/thumbnails/liverpool.png" class="tile-thumb" alt="Cheltenham Town FC U18 Analysis">
+          <h3>Cheltenham Town FC U18 Analysis</h3>
+          <p>Live coding and post-match review for EFL Youth Alliance U18 matches.</p>
         </a>
-
+    
+        <a class="tile football" href="project-bath-city-fc-set-piece-analysis.html">
+          <img src="assets/thumbnails/liverpool.png" class="tile-thumb" alt="Bath City FC Set-Piece Analysis">
+          <h3>Bath City FC Set-Piece Analysis</h3>
+          <p>Built a set-piece database and tactical plans for National League South side.</p>
+        </a>
+    
+        <a class="tile squash" href="project-squash-dissertation-rally-intensity.html">
+          <img src="assets/thumbnails/squash.png" class="tile-thumb" alt="Squash Dissertation: Rally Intensity">
+          <h3>Squash Dissertation: Rally Intensity</h3>
+          <p>Used rally intensity metrics to examine performance and world rankings.</p>
+        </a>
+    
+        <a class="tile basketball" href="project-cardiff-vikings-performance-and-ops.html">
+          <img src="assets/thumbnails/liverpool.png" class="tile-thumb" alt="Cardiff Vikings Performance & Ops">
+          <h3>Cardiff Vikings Performance & Ops</h3>
+          <p>Launched and analysed a semi-professional basketball team with strategic development.</p>
+        </a>
+    
+        <a class="tile netball" href="project-netball-performance-review.html">
+          <img src="assets/thumbnails/liverpool.png" class="tile-thumb" alt="Netball Performance Review">
+          <h3>Netball Performance Review</h3>
+          <p>Tagged and reviewed university-level netball matches with insights.</p>
+        </a>
+    
+        <a class="tile cricket" href="project-cricket-video-analysis.html">
+          <img src="assets/thumbnails/liverpool.png" class="tile-thumb" alt="Cricket Video Analysis">
+          <h3>Cricket Video Analysis</h3>
+          <p>Trialled tagging and data feedback loops for club-level and university cricket.</p>
+        </a>
+    
+        <a class="tile taekwondo" href="project-team-gb-taekwondo-performance-insights.html">
+          <img src="assets/thumbnails/liverpool.png" class="tile-thumb" alt="Team GB Taekwondo Performance Insights">
+          <h3>Team GB Taekwondo Performance Insights</h3>
+          <p>Post-competition analysis and feedback to elite Taekwondo athletes and staff.</p>
+        </a>
+    
+        <a class="tile rugby" href="project-rfu-rugby-head-contact-tagging.html">
+          <img src="assets/thumbnails/liverpool.png" class="tile-thumb" alt="RFU Rugby Head Contact Tagging">
+          <h3>RFU Rugby Head Contact Tagging</h3>
+          <p>Tagged head contact events for national rugby research study.</p>
+        </a>
+    
+        <a class="tile basketball" href="project-university-womens-basketball-coaching.html">
+          <img src="assets/thumbnails/liverpool.png" class="tile-thumb" alt="University Women's Basketball Coaching">
+          <h3>University Women's Basketball Coaching</h3>
+          <p>Designed training, ran matches, and applied performance insights to coaching.</p>
+        </a>
+    
       </div>
     </main>
     <footer>
@@ -72,11 +124,7 @@
     function filterTiles(cat) {
       const tiles = document.querySelectorAll('.tile');
       tiles.forEach(tile => {
-        if (cat === 'all' || tile.classList.contains(cat)) {
-          tile.style.display = 'block';
-        } else {
-          tile.style.display = 'none';
-        }
+        tile.style.display = (cat === 'all' || tile.classList.contains(cat)) ? 'block' : 'none';
       });
     }
   </script>
