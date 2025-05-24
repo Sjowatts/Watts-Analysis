@@ -145,10 +145,15 @@ nav a {
   font-weight: bold;
   color: #03396c;
 }
-/* 📱 Mobile Optimization */
+/* Mobile Optimization */
 @media (max-width: 768px) {
+  body {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
   header {
-    padding: 10px 20px;
+    padding: 12px 20px;
   }
 
   .header-container {
@@ -158,24 +163,47 @@ nav a {
 
   nav {
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
     margin-top: 10px;
+    font-size: 18px;
+  }
+
+  nav a {
+    padding: 5px 0;
+    display: inline-block;
+  }
+
+  .site-logo {
+    height: 36px;
+    margin-bottom: 10px;
   }
 
   main {
     padding: 20px;
   }
 
+  .page-wrapper {
+    padding: 0 10px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
   .tile-grid {
-    grid-template-columns: 1fr; /* Stack tiles vertically */
+    grid-template-columns: 1fr;
   }
 
   .tile {
-    aspect-ratio: auto; /* allow taller tiles if needed */
-  }
-
-  .site-logo {
-    height: 36px;
-    margin-bottom: 10px;
+    padding: 20px;
+    font-size: 16px;
   }
 }
