@@ -112,10 +112,10 @@ footer {
 }
 
 
-/* New consistent header layout */
+/* Ensure logo stays top-left of the full white bar */
 header {
   background-color: #ffffff;
-  padding: 10px 20px;
+  padding: 10px 40px;
   border-bottom: 4px solid #03396c;
 }
 
@@ -123,9 +123,9 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
   flex-wrap: wrap;
+  width: 100%;
+  max-width: none;
 }
 
 .site-logo {
