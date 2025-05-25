@@ -148,7 +148,7 @@ nav a {
 /* Mobile Optimization */
 @media (max-width: 768px) {
   body {
-    font-size: 16px;
+    font-size: 20px;
     line-height: 1.6;
   }
 
