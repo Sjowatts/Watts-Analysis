@@ -207,3 +207,22 @@ nav a {
     font-size: 16px;
   }
 }
+
+/* 🌌 Background image overlay for navy sections */
+body {
+  background-color: #011f4b;
+  background-image: url('assets/background.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-blend-mode: overlay;
+}
+
+header,
+footer,
+.navbar,
+.dark-section {
+  background-color: rgba(1, 31, 75, 0.85); /* semi-transparent navy */
+  backdrop-filter: blur(4px);
+}
