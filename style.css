@@ -79,3 +79,17 @@ a {
 a:hover {
   color: #63b3ed;
 }
+
+
+/* Logo sizing */
+
+.site-logo {
+  max-height: 80px;
+  width: auto;
+}
+
+@media (max-width: 600px) {
+  .site-logo {
+    max-height: 50px;
+  }
+}
