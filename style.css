@@ -49,11 +49,12 @@ footer {
 
 
 
+
 main {
-  flex: 1;
-  overflow-y: auto;
-  padding: 100px 20px 60px 20px; /* Padding to avoid header/footer overlap */
+  margin-top: 100px;
+  padding: 0 20px;
 }
+
 
 
 
@@ -73,4 +74,14 @@ main {
 }
 .project-tile:hover {
   transform: scale(1.05);
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 15px;
+  font-weight: bold;
+}
+nav a:hover {
+  text-decoration: underline;
 }
