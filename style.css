@@ -93,3 +93,51 @@ a:hover {
     max-height: 50px;
   }
 }
+
+
+/* Page headings */
+
+h1, h2, h3 {
+  text-align: center;
+  color: white;
+  margin: 40px 0 20px;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
+
+/* Portfolio tile formatting */
+
+.project-tile img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.project-tile h3 {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.project-tile p {
+  font-size: 0.95rem;
+  color: #ccc;
+  line-height: 1.4;
+}
