@@ -175,3 +175,14 @@ h2 {
     top: 15px;
   }
 }
+
+
+/* Page border wrapper */
+
+.wrapper {
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
