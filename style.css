@@ -62,14 +62,21 @@ nav a:hover {
 }
 
 
+
 .project-tile {
-  background-color: rgba(173, 216, 230, 0.15); /* lightblue tint */
+  background-color: rgba(173, 216, 230, 0.2);
   padding: 20px;
   border-radius: 12px;
   color: #fff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
 }
+
 
 .project-tile:hover {
   transform: scale(1.05);
@@ -147,4 +154,24 @@ h2 {
   font-size: 0.95rem;
   color: #ccc;
   line-height: 1.4;
+}
+
+
+/* Top-right page title */
+
+.page-title {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  color: white;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .page-title {
+    font-size: 1.3rem;
+    right: 10px;
+    top: 15px;
+  }
 }
