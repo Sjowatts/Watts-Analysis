@@ -1,172 +1,94 @@
+
+/* Global Styles */
 body {
-  margin: 0;
   font-family: Arial, sans-serif;
-  background: url('assets/background.jpg') no-repeat center center fixed;
-  background-size: cover;
-  padding-bottom: 60px;
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  color: #111;
+  box-sizing: border-box;
 }
 
+/* Layout Container */
+.container {
+  background-color: rgba(179, 205, 224, 0.7);
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 1000px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Page Borders */
+html, body {
+  padding-left: 10px;
+  padding-right: 10px;
+  overflow-x: hidden;
+}
+
+/* Header Styles */
 header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #011f4b;
-  color: white;
+  background-color: #ffffff;
   padding: 10px 20px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  border-bottom: 4px solid #03396c;
-  z-index: 1000;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: 4px solid #6497b1;
 }
 
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #001f33;
-  color: white;
-  text-align: center;
-  font-size: 0.85rem;
-  padding: 6px 0;
-  z-index: 1000;
-}
-
-main {
-  margin-top: 100px;
-  padding: 20px;
-  background-color: rgba(179, 205, 224, 0.75); /* transparent light blue */
-  color: white;
-  min-height: calc(100vh - 160px); /* adjust for header + footer */
+/* Navigation Styles */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  font-weight: bold;
 }
 
 nav a {
-  color: white;
   text-decoration: none;
-  margin-right: 15px;
-  font-weight: bold;
+  color: #005b96;
+  font-size: 16px;
 }
+
 nav a:hover {
   text-decoration: underline;
 }
 
-/* Portfolio tile layout */
-.portfolio-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.project-tile {
-  background-color: rgba(173, 216, 230, 0.2);
-  padding: 20px;
-  border-radius: 12px;
-  color: #fff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
-  min-height: 220px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+/* Footer */
+footer {
+  background-color: #03396c;
+  color: white;
   text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  font-size: 14px;
 }
 
-.project-tile:hover {
-  transform: scale(1.05);
-}
-
-a {
-  color: #1e90ff;
-}
-a:hover {
-  color: #63b3ed;
-}
-
-/* Logo sizing */
-.site-logo {
-  max-height: 80px;
-  width: auto;
-}
-
-@media (max-width: 600px) {
-  .site-logo {
-    max-height: 50px;
-  }
-}
-
-/* Page headings */
+/* Headings */
 h1, h2, h3 {
-  text-align: center;
-  color: white;
-  margin: 40px 0 20px;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  max-width: 100%;
+  color: #03396c;
+  margin-top: 0;
 }
 
-h1 {
-  font-size: 2.5rem;
-}
-
-h2 {
-  font-size: 2rem;
-}
-
-@media (max-width: 600px) {
-  h1 {
-    font-size: 2rem;
+/* Responsive Fixes */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  h2 {
-    font-size: 1.5rem;
+  nav {
+    justify-content: flex-start;
+    gap: 10px;
   }
-}
 
-/* Portfolio tile formatting */
-.project-tile img {
-  max-width: 100%;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-
-.project-tile h3 {
-  margin-top: 10px;
-  font-size: 1.2rem;
-  color: #fff;
-}
-
-.project-tile p {
-  font-size: 0.95rem;
-  color: #ccc;
-  line-height: 1.4;
-}
-
-/* Top-right page title */
-.page-title {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 2rem;
-  color: white;
-  margin: 0;
-}
-
-@media (max-width: 600px) {
-  .page-title {
-    font-size: 1.3rem;
-    right: 10px;
-    top: 15px;
+  .container {
+    padding: 15px;
+    margin: 10px;
   }
-}
 
-/* Page border wrapper */
-.wrapper {
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  box-sizing: border-box;
+  nav a {
+    font-size: 14px;
+  }
 }
