@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore performance analysis case studies and portfolio projects from Sam Watts across football, basketball, squash, research, and applied practice.">
+  <meta name="theme-color" content="#102a54">
   <title>Portfolio | Watts Analysis</title>
-  <link rel="stylesheet" href="style.css?v=20260331b">
+  <link rel="icon" href="assets/logo.png">
+  <link rel="stylesheet" href="style.css?v=20260331c">
 </head>
 <body>
   <div class="page-wrapper">
@@ -12,6 +15,7 @@
       <div class="header-inner">
         <a class="brand-link" href="index.html" aria-label="Watts Analysis home">
           <img src="assets/watts-analysis-header.png" alt="Watts Analysis" class="site-logo">
+          <span class="brand-note">Sports Performance Analysis</span>
         </a>
         <nav>
           <a href="index.html">Home</a>
@@ -28,22 +32,41 @@
         <p class="eyebrow">Portfolio</p>
         <h1>Selected projects across performance environments.</h1>
         <p class="intro">
-          Browse work by sport or by the kind of analysis involved. The filter now works properly, so it is easier to
-          find the projects most relevant to you.
+          Browse work by sport or by the kind of analysis involved. The filter now works properly and keeps its state in
+          the URL, so it is easier to share the exact slice of work you want someone to see.
         </p>
       </section>
 
+      <section class="stat-grid">
+        <article class="stat-card">
+          <strong>10</strong>
+          <span>project pages</span>
+        </article>
+        <article class="stat-card">
+          <strong>6+</strong>
+          <span>sports represented</span>
+        </article>
+        <article class="stat-card">
+          <strong>Research</strong>
+          <span>and applied practice</span>
+        </article>
+        <article class="stat-card">
+          <strong>Elite</strong>
+          <span>club and national exposure</span>
+        </article>
+      </section>
+
       <section class="filter-bar" aria-label="Portfolio filters">
-        <button class="filter-button active" type="button" data-filter="all">All</button>
-        <button class="filter-button" type="button" data-filter="football">Football</button>
-        <button class="filter-button" type="button" data-filter="basketball">Basketball</button>
-        <button class="filter-button" type="button" data-filter="research">Research</button>
-        <button class="filter-button" type="button" data-filter="applied">Applied practice</button>
+        <button class="filter-button active" type="button" data-filter="all" aria-controls="portfolio-grid">All</button>
+        <button class="filter-button" type="button" data-filter="football" aria-controls="portfolio-grid">Football</button>
+        <button class="filter-button" type="button" data-filter="basketball" aria-controls="portfolio-grid">Basketball</button>
+        <button class="filter-button" type="button" data-filter="research" aria-controls="portfolio-grid">Research</button>
+        <button class="filter-button" type="button" data-filter="applied" aria-controls="portfolio-grid">Applied practice</button>
       </section>
 
       <section class="card-grid" id="portfolio-grid">
         <article class="project-card" data-tags="research applied">
-          <img src="assets/thumbnails/squash.png" alt="Squash dissertation summary">
+          <img src="assets/thumbnails/squash.png" alt="Squash dissertation summary" loading="lazy">
           <div class="project-card-content">
             <div class="project-tags">
               <span class="tag">Research</span>
@@ -56,7 +79,7 @@
         </article>
 
         <article class="project-card" data-tags="football applied">
-          <img src="assets/thumbnails/liverpool.png" alt="Liverpool academy report thumbnail">
+          <img src="assets/thumbnails/liverpool.png" alt="Liverpool academy report thumbnail" loading="lazy">
           <div class="project-card-content">
             <div class="project-tags">
               <span class="tag">Football</span>
@@ -69,7 +92,7 @@
         </article>
 
         <article class="project-card" data-tags="football applied">
-          <img src="assets/thumbnails/bath.png" alt="Bath City analysis thumbnail">
+          <img src="assets/thumbnails/bath.png" alt="Bath City analysis thumbnail" loading="lazy">
           <div class="project-card-content">
             <div class="project-tags">
               <span class="tag">Football</span>
@@ -82,7 +105,7 @@
         </article>
 
         <article class="project-card" data-tags="basketball applied">
-          <img src="assets/thumbnails/cardiffvikings.png" alt="Cardiff Vikings thumbnail">
+          <img src="assets/thumbnails/cardiffvikings.png" alt="Cardiff Vikings thumbnail" loading="lazy">
           <div class="project-card-content">
             <div class="project-tags">
               <span class="tag">Basketball</span>
@@ -172,6 +195,18 @@
           </div>
         </article>
       </section>
+
+      <section class="project-cta">
+        <div>
+          <p class="eyebrow">Need a closer look?</p>
+          <h2>Happy to share more context around any of these projects.</h2>
+          <p>If you want to discuss a relevant example or see how this work could translate to your environment, get in touch.</p>
+        </div>
+        <div class="button-row">
+          <a class="button-link" href="contact.html">Contact Me</a>
+          <a class="button-link secondary-button" href="cv.html">View CV</a>
+        </div>
+      </section>
     </main>
   </div>
 
@@ -195,13 +230,28 @@
         button.classList.toggle("active", active);
         button.setAttribute("aria-pressed", String(active));
       });
+
+      if (filter === "all") {
+        history.replaceState(null, "", window.location.pathname);
+      } else {
+        history.replaceState(null, "", "#" + filter);
+      }
     }
+
+    const validFilters = new Set([...buttons].map((button) => button.dataset.filter));
+    const requestedFilter = window.location.hash ? window.location.hash.slice(1) : "all";
+    const initialFilter = validFilters.has(requestedFilter) ? requestedFilter : "all";
 
     buttons.forEach((button) => {
       button.addEventListener("click", () => applyFilter(button.dataset.filter));
     });
 
-    applyFilter("all");
+    window.addEventListener("hashchange", () => {
+      const nextFilter = window.location.hash ? window.location.hash.slice(1) : "all";
+      applyFilter(validFilters.has(nextFilter) ? nextFilter : "all");
+    });
+
+    applyFilter(initialFilter);
   </script>
 </body>
 </html>
