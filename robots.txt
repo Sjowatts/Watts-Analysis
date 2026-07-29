@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sjowatts.github.io/Watts-Analysis/sitemap.xml
