@@ -48,8 +48,15 @@ body {
     radial-gradient(circle at 14% 16%, rgba(219, 231, 93, 0.12), transparent 24%),
     radial-gradient(circle at 88% 18%, rgba(130, 215, 255, 0.12), transparent 24%),
     linear-gradient(145deg, rgba(5, 15, 30, 0.78), rgba(9, 28, 56, 0.9)),
-    url("assets/background.jpg") center center / cover fixed no-repeat;
+    url("assets/background.jpg") center center / cover no-repeat;
   background-color: var(--bg-ink);
+  background-attachment: scroll;
+}
+
+@media (min-width: 769px) {
+  body {
+    background-attachment: fixed;
+  }
 }
 
 body::before,
@@ -630,12 +637,22 @@ li {
     linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(237, 245, 255, 0.95));
 }
 
+.page-hero-aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(237, 245, 255, 0.95));
+}
+
 .premium-aside h2,
 .page-hero-aside h2 {
   color: var(--navy-strong);
 }
 
-.premium-aside h2 {
+.premium-aside h2,
+.page-hero-aside h2 {
   margin-bottom: 6px;
 }
 
@@ -1110,6 +1127,10 @@ footer {
   .page-wrapper,
   footer {
     width: min(100%, calc(100% - 18px));
+  }
+
+  h1 {
+    font-size: clamp(2.1rem, 9vw, 2.8rem);
   }
 
   .site-header {
