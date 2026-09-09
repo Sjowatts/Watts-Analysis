@@ -91,13 +91,13 @@ h4 {
 
 h1 {
   font-size: clamp(2.9rem, 6.6vw, 6.2rem);
-  line-height: 0.86;
+  line-height: 0.92;
   letter-spacing: 0.004em;
 }
 
 h2 {
   font-size: clamp(1.9rem, 3.6vw, 2.9rem);
-  line-height: 0.92;
+  line-height: 0.96;
   letter-spacing: 0.008em;
 }
 
@@ -963,7 +963,8 @@ main > section.project-hero {
 }
 
 .filter-status {
-  margin: 0 0 16px;
+  flex-basis: 100%;
+  margin: 6px 0 0;
   color: var(--muted);
   font-family: var(--body);
   font-size: 0.72rem;
@@ -1159,6 +1160,7 @@ main > section.project-cta {
 }
 
 .project-cta p {
+  margin-top: 14px;
   color: rgba(0, 0, 0, 0.74);
 }
 
@@ -1360,6 +1362,21 @@ main > section.reveal.is-visible {
 
   h1 {
     font-size: clamp(2.4rem, 12vw, 3.4rem);
+    line-height: 0.98;
+  }
+
+  h2 {
+    line-height: 1;
+  }
+
+  /* the sheared chip only reads on a single line; these labels wrap at
+     phone widths, so square it off */
+  .eyebrow::before {
+    transform: none;
+  }
+
+  .eyebrow {
+    padding: 8px 14px;
   }
 
   .header-inner {
