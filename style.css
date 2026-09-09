@@ -1271,3 +1271,48 @@ a.new-tab:not(.button-link)::after {
   font-weight: 400;
   line-height: 1.6;
 }
+
+/* The CV stat band was a <section> acting as its own grid. A dl cannot
+   be a section, so the grid moved inside one — and the section's padding
+   moved with it, so the line-coloured band still sits inside the border
+   exactly as before rather than the border pulling in to hug the cards. */
+main > section.stat-section {
+  padding: 0;
+  border-bottom: none;
+}
+
+.stat-grid {
+  margin: 0;
+  padding: clamp(48px, 8vw, 100px) clamp(20px, 5vw, 64px);
+}
+
+/* Figure-and-caption, so the same reversed mapping as .hero-statline. */
+.stat-card {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+}
+
+.stat-card dd {
+  margin: 0;
+  color: var(--ink);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1.9rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.stat-card dt {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-family: "Work Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .stat-grid {
+    padding: 40px 20px;
+  }
+}
