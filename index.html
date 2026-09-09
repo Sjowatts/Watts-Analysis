@@ -20,7 +20,10 @@
   <meta name="twitter:image" content="https://sjowatts.github.io/Watts-Analysis/assets/social-preview.png">
   <title>Home | Watts Analysis</title>
   <link rel="icon" href="assets/logo.png">
-  <link rel="stylesheet" href="style.css?v=20260429matchreport">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&amp;family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+  <link rel="stylesheet" href="style.css?v=20260909apple">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -40,6 +43,7 @@
 </head>
 <body>
   <div class="page-wrapper">
+    <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="header-inner">
         <a class="brand-link" href="index.html" aria-label="Watts Analysis home">
@@ -56,21 +60,21 @@
       </div>
     </header>
 
-    <main>
+    <main id="main" tabindex="-1">
       <section class="home-hero">
         <div class="hero-block hero-copy">
-          <div class="trust-pills" aria-label="Selected performance environments">
-            <span class="trust-pill">England Men's National Team</span>
-            <span class="trust-pill">Team GB Taekwondo</span>
-            <span class="trust-pill">UEFA Technical Observers</span>
-            <span class="trust-pill">Liverpool FC U15/U16</span>
-          </div>
           <p class="eyebrow">Performance analysis for modern sport</p>
           <h1>Performance insight built for coaches who need clarity fast.</h1>
           <p class="intro">
             I help clubs, academies, and national performance environments turn match footage and data into clear,
             coach-facing insight that supports decision-making, communication, and player development.
           </p>
+          <ul class="trust-pills" aria-label="Selected performance environments">
+            <li class="trust-pill">England Men's National Team</li>
+            <li class="trust-pill">Team GB Taekwondo</li>
+            <li class="trust-pill">UEFA Technical Observers</li>
+            <li class="trust-pill">Liverpool FC U15/U16</li>
+          </ul>
           <div class="button-row">
             <a class="button-link" href="portfolio.html">View Portfolio</a>
             <a class="button-link secondary-button" href="contact.html">Work With Me</a>
@@ -263,5 +267,6 @@
   <footer>
     &copy; 2026 Watts Analysis. Built for modern performance environments.
   </footer>
+  <script src="site.js?v=20260909apple" defer></script>
 </body>
 </html>

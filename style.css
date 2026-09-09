@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
-
 * {
   box-sizing: border-box;
 }
@@ -1261,5 +1259,275 @@ footer a {
   *::after {
     animation: none !important;
     transition: none !important;
+  }
+}
+
+/* ============================================================
+   Apple-design pass — response, focus, contrast, typography.
+   ============================================================ */
+
+/* --- Contrast: --muted was 3.10:1 on paper (fails AA) on the
+       stat labels, strapline and inactive filter tabs. 4.8:1 now.
+       The footer sits on --ink, where the old value already passed. */
+:root {
+  --muted: #5f6a71;
+  --muted-on-ink: #838d93;
+}
+
+footer {
+  color: var(--muted-on-ink);
+}
+
+/* --- Press feedback: acknowledge the touch, not just the release. --- */
+.button-link,
+.download-btn,
+.filter-button,
+.brand-link,
+nav a {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.button-link:active,
+.download-btn:active,
+.filter-button:active,
+.project-card:active,
+.service-card:active,
+.feature-card:active {
+  transform: scale(0.985);
+  transition: transform 100ms ease-out;
+}
+
+/* --- Hover lifts must not latch on touch. --- */
+.service-card,
+.project-card,
+.feature-card {
+  transform: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .service-card:hover,
+  .project-card:hover,
+  .feature-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--flag);
+  }
+}
+
+@media (hover: none) {
+  .service-card:hover,
+  .project-card:hover,
+  .feature-card:hover,
+  .button-link:hover,
+  .download-btn:hover {
+    transform: none;
+  }
+}
+
+/* --- Focus: the default ring is near-invisible on the black
+       buttons and on the pitch-green panels. --- */
+:focus-visible {
+  outline: 2px solid var(--flag);
+  outline-offset: 3px;
+}
+
+.premium-aside :focus-visible,
+.page-hero-aside :focus-visible,
+.summary-card :focus-visible,
+.project-cta :focus-visible,
+.feature-card-large :focus-visible,
+.project-placeholder :focus-visible {
+  outline-color: #ffffff;
+}
+
+.skip-link {
+  position: absolute;
+  top: -80px;
+  left: 12px;
+  z-index: 40;
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  background: var(--ink);
+  color: var(--paper);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: top 0.18s ease;
+}
+
+.skip-link:hover,
+.skip-link:focus {
+  color: var(--paper);
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+main:focus {
+  outline: none;
+}
+
+/* --- Typography: leading and tracking have to track size.
+       0.98 is right at 5rem and wrong at 19px. --- */
+h1 {
+  line-height: 0.94;
+  letter-spacing: -0.025em;
+}
+
+h2 {
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+}
+
+h3,
+h4 {
+  line-height: 1.18;
+  letter-spacing: -0.005em;
+}
+
+.project-card-content h2,
+.service-card h3,
+.pillar-card h3,
+.process-card h3,
+.feature-card h3,
+.timeline-item h3,
+.contact-card h2,
+.content-panel h2,
+.media-card h2 {
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+}
+
+/* --- Trust pills are a list, and now sit under the intro so the
+       headline is the first thing on a phone. --- */
+.trust-pills {
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* --- Sticky header: scroll-edge effect rather than a permanent
+       hairline, and no blur separation until there is something
+       behind it. --- */
+.site-header {
+  border-bottom: none;
+  box-shadow: 0 1px 0 var(--line);
+  transition: box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.site-header.is-scrolled {
+  box-shadow: 0 1px 0 var(--line), 0 12px 28px rgba(20, 24, 28, 0.07);
+}
+
+html {
+  scroll-padding-top: 96px;
+}
+
+body {
+  min-height: 100dvh;
+}
+
+/* --- Load: the hero never animates. Everything below the fold is
+       revealed on arrival by site.js (class added there, so the
+       page still renders with JS off). --- */
+main > section {
+  animation: none;
+}
+
+main > section.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  will-change: opacity, transform;
+}
+
+main > section.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+
+/* --- Portfolio filter: cross-fade instead of a hard cut. --- */
+.project-card {
+  transition: transform 0.2s ease, border-color 0.2s ease, opacity 0.16s ease;
+}
+
+.project-card.is-leaving,
+.project-card.is-entering {
+  opacity: 0;
+}
+
+.filter-status {
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.76rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* --- Materials: honour the transparency and contrast settings the
+       backdrop-filter header depends on. --- */
+@media (prefers-reduced-transparency: reduce) {
+  .site-header {
+    background: var(--paper);
+    backdrop-filter: none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --line: rgba(20, 24, 28, 0.42);
+    --line-strong: rgba(20, 24, 28, 0.62);
+    --muted: #3d464c;
+  }
+
+  .site-header {
+    background: var(--paper);
+    backdrop-filter: none;
+  }
+
+  .trust-pill,
+  .chip,
+  .tag,
+  .meta-pill {
+    border-width: 1px;
+    color: var(--ink);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main > section.reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media print {
+  main > section.reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* --- Mobile: 158px of sticky header was 19% of an iPhone viewport. --- */
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 140px;
+  }
+
+  .header-inner {
+    gap: 10px;
+    padding: 12px 20px;
+  }
+
+  nav {
+    gap: 8px 14px;
+  }
+
+  .site-header.is-scrolled .brand-note {
+    display: none;
   }
 }

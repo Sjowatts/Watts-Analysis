@@ -20,10 +20,14 @@
   <meta name="twitter:image" content="https://sjowatts.github.io/Watts-Analysis/assets/social-preview.png">
   <title>Portfolio | Watts Analysis</title>
   <link rel="icon" href="assets/logo.png">
-  <link rel="stylesheet" href="style.css?v=20260429matchreport">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&amp;family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+  <link rel="stylesheet" href="style.css?v=20260909apple">
 </head>
 <body>
   <div class="page-wrapper">
+    <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="header-inner">
         <a class="brand-link" href="index.html" aria-label="Watts Analysis home">
@@ -40,7 +44,7 @@
       </div>
     </header>
 
-    <main>
+    <main id="main" tabindex="-1">
       <section class="page-hero">
         <div class="page-hero-main">
           <p class="eyebrow">Portfolio</p>
@@ -94,6 +98,7 @@
         <button class="filter-button" type="button" data-filter="applied" aria-controls="portfolio-grid">Applied practice</button>
       </section>
 
+      <p class="filter-status" role="status" aria-live="polite"></p>
       <section class="card-grid" id="portfolio-grid">
         <article class="project-card" data-tags="research applied">
           <img src="assets/thumbnails/squash.png" alt="Squash dissertation summary" loading="lazy">
@@ -247,19 +252,49 @@
   <script>
     const buttons = document.querySelectorAll(".filter-button");
     const cards = document.querySelectorAll(".project-card");
+    const status = document.querySelector(".filter-status");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let run = 0;
 
-    function applyFilter(filter) {
+    function commit(matches) {
       cards.forEach((card) => {
-        const tags = card.dataset.tags.split(" ");
-        const show = filter === "all" || tags.includes(filter);
-        card.classList.toggle("is-hidden", !show);
+        card.classList.toggle("is-hidden", !matches.includes(card));
       });
+      if (status) {
+        status.textContent =
+          matches.length + (matches.length === 1 ? " project shown" : " projects shown");
+      }
+    }
+
+    function applyFilter(filter, animate) {
+      const matches = [...cards].filter(
+        (card) => filter === "all" || card.dataset.tags.split(" ").includes(filter)
+      );
 
       buttons.forEach((button) => {
         const active = button.dataset.filter === filter;
         button.classList.toggle("active", active);
         button.setAttribute("aria-pressed", String(active));
       });
+
+      const token = ++run;
+      if (!animate || reduceMotion.matches) {
+        commit(matches);
+      } else {
+        cards.forEach((card) => card.classList.add("is-leaving"));
+        setTimeout(() => {
+          if (token !== run) return;
+          commit(matches);
+          matches.forEach((card) => card.classList.add("is-entering"));
+          // Driven by timers, not rAF: a throttled or backgrounded tab
+          // must never strand a card at opacity 0.
+          setTimeout(() => {
+            cards.forEach((card) =>
+              card.classList.remove("is-leaving", "is-entering")
+            );
+          }, 30);
+        }, 160);
+      }
 
       if (filter === "all") {
         history.replaceState(null, "", window.location.pathname);
@@ -273,15 +308,16 @@
     const initialFilter = validFilters.has(requestedFilter) ? requestedFilter : "all";
 
     buttons.forEach((button) => {
-      button.addEventListener("click", () => applyFilter(button.dataset.filter));
+      button.addEventListener("click", () => applyFilter(button.dataset.filter, true));
     });
 
     window.addEventListener("hashchange", () => {
       const nextFilter = window.location.hash ? window.location.hash.slice(1) : "all";
-      applyFilter(validFilters.has(nextFilter) ? nextFilter : "all");
+      applyFilter(validFilters.has(nextFilter) ? nextFilter : "all", true);
     });
 
-    applyFilter(initialFilter);
+    applyFilter(initialFilter, false);
   </script>
+  <script src="site.js?v=20260909apple" defer></script>
 </body>
 </html>
