@@ -196,9 +196,9 @@ li {
 .brand-note {
   color: var(--muted);
   font-family: var(--body);
-  font-size: 0.66rem;
+  font-size: 0.7rem;
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
@@ -740,9 +740,9 @@ main > section.project-hero {
   border-bottom: 3px solid var(--flag);
   color: var(--flag);
   font-family: var(--body);
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
 }
 
@@ -1378,6 +1378,19 @@ main > section.reveal.is-visible {
 
   .site-header.is-scrolled .brand-note {
     display: none;
+  }
+
+  /* both of these measured under the 44px touch minimum on a phone:
+     the wordmark at 41px tall, the project back link at 18px */
+  .brand-link {
+    min-height: 44px;
+    justify-content: center;
+  }
+
+  .back-link {
+    min-height: 44px;
+    padding: 12px 0;
+    margin-bottom: 12px;
   }
 
   main > section {
