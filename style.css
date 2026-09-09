@@ -376,8 +376,7 @@ main > section:last-of-type {
 .process-card,
 .feature-card,
 .timeline-item,
-.contact-method,
-.portfolio-note {
+.contact-method {
   border: 1px solid var(--line);
   border-radius: 0;
   background: var(--paper-raised);
@@ -394,8 +393,7 @@ main > section:last-of-type {
 .process-card,
 .feature-card,
 .timeline-item,
-.contact-method,
-.portfolio-note {
+.contact-method {
   padding: 34px;
 }
 
@@ -1139,23 +1137,12 @@ main > section.project-hero {
   margin-bottom: 12px;
 }
 
-.portfolio-note {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
 
-.portfolio-note p:last-child {
-  max-width: 520px;
-  margin-bottom: 0;
-}
 
 .timeline-item p:last-child,
 .impact-card p:last-child,
 .service-card p:last-child,
-.feature-card p:last-child,
-.portfolio-note p:last-child {
+.feature-card p:last-child {
   margin-bottom: 0;
 }
 
@@ -1516,8 +1503,7 @@ main > section.reveal.is-visible .stat-card:nth-child(4) {
   .process-card,
   .feature-card,
   .timeline-item,
-  .contact-method,
-  .portfolio-note {
+  .contact-method {
     padding: 24px 22px;
   }
 
@@ -1548,10 +1534,6 @@ main > section.reveal.is-visible .stat-card:nth-child(4) {
     grid-template-columns: 1fr;
   }
 
-  .portfolio-note {
-    flex-direction: column;
-    align-items: flex-start;
-  }
 
   .project-card img,
   .project-card .project-placeholder {
