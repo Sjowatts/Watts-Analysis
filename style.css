@@ -13,7 +13,7 @@
   --paper-raised: #16191c;
   --paper-soft: #1a1e22;
   --ink: #f2f3f0;
-  --ink-soft: rgba(242, 243, 240, 0.72);
+  --ink-soft: rgba(242, 243, 240, 0.8);
   --muted: #8a939b;
   --line: rgba(242, 243, 240, 0.16);
   --line-strong: rgba(242, 243, 240, 0.3);
@@ -49,7 +49,8 @@ body {
   flex-direction: column;
   color: var(--ink-soft);
   font-family: var(--body);
-  line-height: 1.6;
+  line-height: 1.7;
+  letter-spacing: 0.006em;
   background: var(--paper);
 }
 
@@ -116,16 +117,22 @@ h4 {
 p,
 li {
   margin-top: 0;
+  margin-bottom: 1.15em;
   color: var(--ink-soft);
-  font-size: 1rem;
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+li {
+  margin-bottom: 0.5em;
 }
 
 .intro {
-  max-width: 62ch;
-  margin-top: 16px;
-  font-size: 1.15rem;
-  line-height: 1.5;
-  color: var(--ink-soft);
+  max-width: 58ch;
+  margin-top: 20px;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--ink);
 }
 
 /* the eyebrow is a sheared signal chip; the shear lives on a pseudo
@@ -236,7 +243,7 @@ main {
 
 main > section {
   width: 100%;
-  padding: clamp(48px, 7vw, 92px) clamp(20px, 5vw, 64px);
+  padding: clamp(56px, 8vw, 112px) clamp(20px, 5vw, 64px);
   border-bottom: 1px solid var(--line);
   background: var(--paper);
 }
@@ -251,7 +258,17 @@ main > section:last-of-type {
 
 .section-heading {
   max-width: 760px;
-  margin-bottom: 36px;
+  margin-bottom: 48px;
+}
+
+.section-heading .eyebrow {
+  margin-bottom: 20px;
+}
+
+.section-heading h2 + p,
+.section-heading h1 + p {
+  margin-top: 18px;
+  margin-bottom: 0;
 }
 
 /* ---------- buttons ---------- */
@@ -343,7 +360,7 @@ main > section:last-of-type {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 28px;
+  margin-top: 34px;
 }
 
 /* ---------- card family : flat, hairline, sharp ---------- */
@@ -379,7 +396,7 @@ main > section:last-of-type {
 .timeline-item,
 .contact-method,
 .portfolio-note {
-  padding: 30px;
+  padding: 34px;
 }
 
 .stat-card {
@@ -580,7 +597,7 @@ main > section.project-hero {
 .metric,
 .fact-card,
 .stat-card {
-  padding: 24px 22px;
+  padding: 28px 24px;
   background: var(--paper);
   border: none;
 }
@@ -599,6 +616,8 @@ main > section.project-hero {
   font-family: var(--display);
   font-weight: 400;
   line-height: 0.88;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
   color: var(--flag);
 }
 
@@ -1311,6 +1330,73 @@ main > section.reveal.is-visible {
   will-change: auto;
 }
 
+/* Children stagger in behind their section. Every rule below is scoped to
+   .reveal, which site.js strips when the observer never fires — so if the
+   reveal fails for any reason these simply stop matching and everything is
+   visible. Nothing can be stranded at opacity 0. */
+main > section.reveal .impact-card,
+main > section.reveal .service-card,
+main > section.reveal .process-card,
+main > section.reveal .pillar-card,
+main > section.reveal .feature-card,
+main > section.reveal .project-card,
+main > section.reveal .timeline-item,
+main > section.reveal .contact-method,
+main > section.reveal .stat-card {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+main > section.reveal.is-visible .impact-card,
+main > section.reveal.is-visible .service-card,
+main > section.reveal.is-visible .process-card,
+main > section.reveal.is-visible .pillar-card,
+main > section.reveal.is-visible .feature-card,
+main > section.reveal.is-visible .project-card,
+main > section.reveal.is-visible .timeline-item,
+main > section.reveal.is-visible .contact-method,
+main > section.reveal.is-visible .stat-card {
+  opacity: 1;
+  transform: none;
+}
+
+main > section.reveal.is-visible .impact-card:nth-child(2),
+main > section.reveal.is-visible .service-card:nth-child(2),
+main > section.reveal.is-visible .process-card:nth-child(2),
+main > section.reveal.is-visible .pillar-card:nth-child(2),
+main > section.reveal.is-visible .feature-card:nth-child(2),
+main > section.reveal.is-visible .project-card:nth-child(2),
+main > section.reveal.is-visible .timeline-item:nth-child(2),
+main > section.reveal.is-visible .contact-method:nth-child(2),
+main > section.reveal.is-visible .stat-card:nth-child(2) {
+  transition-delay: 0.06s;
+}
+
+main > section.reveal.is-visible .impact-card:nth-child(3),
+main > section.reveal.is-visible .service-card:nth-child(3),
+main > section.reveal.is-visible .process-card:nth-child(3),
+main > section.reveal.is-visible .pillar-card:nth-child(3),
+main > section.reveal.is-visible .feature-card:nth-child(3),
+main > section.reveal.is-visible .project-card:nth-child(3),
+main > section.reveal.is-visible .timeline-item:nth-child(3),
+main > section.reveal.is-visible .contact-method:nth-child(3),
+main > section.reveal.is-visible .stat-card:nth-child(3) {
+  transition-delay: 0.12s;
+}
+
+main > section.reveal.is-visible .impact-card:nth-child(4),
+main > section.reveal.is-visible .service-card:nth-child(4),
+main > section.reveal.is-visible .process-card:nth-child(4),
+main > section.reveal.is-visible .pillar-card:nth-child(4),
+main > section.reveal.is-visible .feature-card:nth-child(4),
+main > section.reveal.is-visible .project-card:nth-child(4),
+main > section.reveal.is-visible .timeline-item:nth-child(4),
+main > section.reveal.is-visible .contact-method:nth-child(4),
+main > section.reveal.is-visible .stat-card:nth-child(4) {
+  transition-delay: 0.14s;
+}
+
 /* ---------- responsive ---------- */
 @media (max-width: 1120px) {
   .impact-band,
@@ -1512,7 +1598,16 @@ main > section.reveal.is-visible {
     transition: none !important;
   }
 
-  main > section.reveal {
+  main > section.reveal,
+  main > section.reveal .impact-card,
+  main > section.reveal .service-card,
+  main > section.reveal .process-card,
+  main > section.reveal .pillar-card,
+  main > section.reveal .feature-card,
+  main > section.reveal .project-card,
+  main > section.reveal .timeline-item,
+  main > section.reveal .contact-method,
+  main > section.reveal .stat-card {
     opacity: 1;
     transform: none;
   }
@@ -1525,8 +1620,9 @@ main > section.reveal.is-visible {
 }
 
 @media print {
-  main > section.reveal {
-    opacity: 1;
-    transform: none;
+  main > section.reveal,
+  main > section.reveal * {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
