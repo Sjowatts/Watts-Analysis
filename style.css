@@ -33,6 +33,7 @@
   --shadow-md: 0 10px 24px rgba(0, 0, 0, 0.4);
   --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
   --display: "Anton", "Arial Narrow", "Helvetica Neue Condensed", sans-serif;
+  --rail: 320px;
   --body: "Archivo", "Helvetica Neue", Arial, sans-serif;
 }
 
@@ -69,7 +70,8 @@ img {
 
 .page-wrapper,
 footer {
-  width: 100%;
+  width: auto;
+  margin-left: var(--rail);
 }
 
 .page-wrapper {
@@ -91,27 +93,33 @@ h4 {
 }
 
 h1 {
-  font-size: clamp(2.9rem, 6.6vw, 6.2rem);
-  line-height: 0.92;
+  font-size: clamp(2.3rem, 4vw, 3.5rem);
+  line-height: 1.04;
   letter-spacing: 0.004em;
 }
 
 h2 {
-  font-size: clamp(1.9rem, 3.6vw, 2.9rem);
-  line-height: 0.96;
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  line-height: 1.06;
   letter-spacing: 0.008em;
 }
 
+h3,
+h4 {
+  font-family: var(--body);
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: -0.01em;
+}
+
 h3 {
-  font-size: 1.5rem;
-  line-height: 1;
-  letter-spacing: 0.01em;
+  font-size: 1.2rem;
+  line-height: 1.35;
 }
 
 h4 {
-  font-size: 1.2rem;
-  line-height: 1.05;
-  letter-spacing: 0.01em;
+  font-size: 1.05rem;
+  line-height: 1.4;
 }
 
 p,
@@ -161,16 +169,27 @@ li {
   transform: skewX(-12deg);
 }
 
-/* ---------- header : black on-air bar ---------- */
+/* ---------- header : a fixed rail, not a bar ----------
+   The rail carries navigation, proof, availability and contact, which is
+   what lets the content column stay simple. Below 980px it cannot exist,
+   so it becomes a top bar plus a pinned bottom action bar. */
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  bottom: 0;
   z-index: 20;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.92);
-  backdrop-filter: blur(10px);
-  border-bottom: 3px solid var(--flag);
-  transition: box-shadow 0.25s ease, background-color 0.25s ease;
+  width: var(--rail);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 40px 30px;
+  overflow-y: auto;
+  background: #08090a;
+  border-right: 1px solid var(--line);
+  border-bottom: none;
+  backdrop-filter: none;
 }
 
 .site-header.is-scrolled {
@@ -178,11 +197,8 @@ li {
 }
 
 .header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 28px;
-  padding: 14px clamp(20px, 4vw, 56px);
+  display: block;
+  padding: 0;
 }
 
 .brand-link {
@@ -211,16 +227,17 @@ li {
 
 nav {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: clamp(14px, 2vw, 30px);
+  flex-direction: column;
+  margin-top: 44px;
 }
 
 nav a {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  padding: 4px 2px;
-  border-bottom: 2px solid transparent;
+  min-height: 48px;
+  padding: 0 0 0 14px;
+  border-left: 3px solid transparent;
+  border-bottom: none;
   color: var(--ink-soft);
   font-family: var(--body);
   font-size: 0.75rem;
@@ -233,7 +250,7 @@ nav a {
 nav a:hover,
 nav a.active {
   color: #ffffff;
-  border-bottom-color: var(--flag);
+  border-left-color: var(--flag);
 }
 
 /* ---------- sections ---------- */
@@ -1606,5 +1623,253 @@ main > section.reveal.is-visible .stat-card:nth-child(4) {
   main > section.reveal * {
     opacity: 1 !important;
     transform: none !important;
+  }
+}
+
+/* ============================================================
+   Fixed rail — the block below the nav, and the phone fallback
+   ============================================================ */
+
+.brand-link {
+  gap: 8px;
+}
+
+.brand-word {
+  font-size: 1.7rem;
+  line-height: 1.02;
+}
+
+.rail-extras {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.rail-status {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.88rem;
+}
+
+.rail-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--flag);
+  flex-shrink: 0;
+}
+
+.rail-contact {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.rail-contact li {
+  margin: 0;
+  font-size: 0.82rem;
+}
+
+.rail-contact a {
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.rail-contact a:hover {
+  color: var(--flag);
+}
+
+.rail-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  background: var(--flag);
+  color: #000000;
+  font-size: 0.85rem;
+  font-weight: 700;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.2s ease;
+}
+
+.rail-cta:hover {
+  background: #ffffff;
+  color: #000000;
+}
+
+.rail-cta:active {
+  transform: scale(0.985);
+}
+
+/* the content column is narrower now, so the two-column heroes and the
+   four-across grids need to fold sooner than they did full-bleed */
+/* The rail takes 320px, so every grid has to fold about that much sooner
+   than the viewport width alone would suggest. */
+@media (min-width: 981px) and (max-width: 1600px) {
+  .home-hero,
+  .page-hero,
+  .project-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-block,
+  .project-hero-card,
+  .page-hero-main {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .premium-aside,
+  .page-hero-aside,
+  .summary-card {
+    border-left: none;
+  }
+
+  .hero-statline,
+  .stat-grid,
+  .impact-band,
+  .process-grid,
+  .contact-method-grid,
+  .service-grid,
+  .pillar-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .featured-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 981px) and (max-width: 1240px) {
+  .split-grid,
+  .detail-grid,
+  .contact-grid,
+  .project-media-grid,
+  .card-grid,
+  .timeline-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- below 980px the rail cannot exist ---------- */
+@media (max-width: 980px) {
+  .site-header {
+    position: sticky;
+    top: 0;
+    bottom: auto;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 20px;
+    overflow: visible;
+    background: #000000;
+    backdrop-filter: none;
+    border-right: none;
+    border-bottom: 3px solid var(--flag);
+  }
+
+  .page-wrapper,
+  footer {
+    margin-left: 0;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+  }
+
+  nav {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-top: 0;
+    gap: 6px;
+  }
+
+  nav a {
+    min-height: 44px;
+    padding: 0 2px;
+    border-left: none;
+    border-bottom: 2px solid transparent;
+  }
+
+  nav a:hover,
+  nav a.active {
+    border-left-color: transparent;
+    border-bottom-color: var(--flag);
+  }
+
+  /* the rail's promise on a phone: availability and the action stay put */
+  .rail-extras {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 30;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 20px;
+    background: #08090a;
+    border-top: 1px solid var(--line);
+  }
+
+  .rail-status {
+    flex-grow: 1;
+    font-size: 0.82rem;
+  }
+
+  .rail-contact {
+    display: none;
+  }
+
+  .rail-cta {
+    padding: 0 20px;
+    min-height: 44px;
+    flex-shrink: 0;
+  }
+
+  body {
+    padding-bottom: 66px;
+  }
+}
+
+@media (max-width: 768px) {
+  .brand-word {
+    font-size: 1.15rem;
+  }
+
+  .brand-note {
+    display: none;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 4px;
+  }
+
+  nav a {
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+    padding: 0;
   }
 }
