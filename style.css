@@ -1622,3 +1622,18 @@ main > section.reveal.is-visible {
 .media-link:active {
   transform: scale(0.995);
 }
+
+/* Inline links that leave the page, and links that hand over a file,
+   should not look identical to links that navigate within the site. */
+a.new-tab:not(.button-link)::after {
+  content: "\2197";
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 0.82em;
+  line-height: 1;
+}
+
+.button-link.download-link::after {
+  content: "\2193";
+  font-size: 0.72rem;
+}
