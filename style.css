@@ -1210,6 +1210,7 @@ a.new-tab:not(.button-link)::after {
 /* Long unbroken values — an email address in a quarter-width cell —
    were spilling into the neighbouring card. */
 .fact-card dd,
+.fact-card dt,
 .fact-card span {
   overflow-wrap: anywhere;
 }
@@ -1224,6 +1225,7 @@ a.new-tab:not(.button-link)::after {
 .hero-stat {
   display: flex;
   flex-direction: column-reverse;
+  justify-content: flex-end;
 }
 
 .hero-stat dd {
@@ -1239,4 +1241,33 @@ a.new-tab:not(.button-link)::after {
   margin: 8px 0 0;
   color: var(--muted);
   font-size: 0.86rem;
+}
+
+/* The about and portfolio snapshots are figure-and-caption, not
+   label-and-value, so their dt/dd mapping is the reverse of the other
+   fact grids: the caption is the term, the figure is its value. Same
+   pattern as .hero-statline — the label leads in the DOM and the visual
+   order is restored here. Specificity beats the plain .fact-card rules. */
+.fact-grid-stat .fact-card {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+}
+
+.fact-grid-stat .fact-card dd {
+  margin: 0;
+  color: #ffffff;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.fact-grid-stat .fact-card dt {
+  margin: 6px 0 0;
+  color: var(--on-pitch-muted);
+  font-family: "Work Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.6;
 }
