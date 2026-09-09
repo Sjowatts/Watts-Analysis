@@ -515,7 +515,9 @@ main > section.project-hero {
   text-transform: uppercase;
 }
 
-.project-hero-card .meta-pill,
+/* The hero card is light (--paper-raised); only the large feature card
+   sits on --pitch. Scoping white pills to the hero left every project
+   tag white-on-white. */
 .feature-card-large .tag {
   border-color: rgba(255, 255, 255, 0.3);
   color: rgba(255, 255, 255, 0.85);
@@ -1530,4 +1532,93 @@ main > section.reveal.is-visible {
   .site-header.is-scrolled .brand-note {
     display: none;
   }
+}
+
+/* ============================================================
+   Project pages — wayfinding, list semantics, exit signposting.
+   ============================================================ */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Project pages are indexed entry points; the only way back to the
+   portfolio was a button at the very bottom. */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.2s ease, gap 0.2s ease;
+}
+
+.back-link::before {
+  content: "\2190";
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.back-link:hover {
+  color: var(--ink);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .back-link:hover {
+    gap: 12px;
+  }
+}
+
+.back-link:active {
+  color: var(--flag-deep);
+}
+
+/* Project tags are a list now, like the trust pills on the home page. */
+.project-meta {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Links that leave the page should not wear the same marker as links
+   that navigate within it. */
+.button-link.new-tab::after {
+  content: "\2197";
+  font-size: 0.72rem;
+}
+
+/* The poster preview was a linked image with nothing to say so. */
+.media-link {
+  display: block;
+  position: relative;
+  border-radius: var(--radius-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, outline-color 0.2s ease;
+  outline: 1px solid var(--line);
+  outline-offset: -1px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .media-link:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    outline-color: var(--flag);
+  }
+}
+
+.media-link:active {
+  transform: scale(0.995);
 }
