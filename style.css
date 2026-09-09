@@ -1213,3 +1213,30 @@ a.new-tab:not(.button-link)::after {
 .fact-card span {
   overflow-wrap: anywhere;
 }
+
+/* The home-page stat line is a description list: the caption is the term,
+   the figure is its value. That forces the label to lead in the DOM, so
+   the visual order is restored here rather than in the markup. */
+.hero-statline {
+  margin: 28px 0 0;
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.hero-stat dd {
+  margin: 0;
+  color: var(--ink);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.hero-stat dt {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
