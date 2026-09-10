@@ -46,7 +46,7 @@ test.describe('portfolio', () => {
       .locator('.project-card a.button-link')
       .evaluateAll((links) => links.map((a) => a.getAttribute('href')));
     expect(linked.sort()).toEqual([...PROJECT_PAGES].sort());
-    await expect(page.locator('.fact-card').filter({ hasText: 'project pages' }).locator('strong')).toHaveText(
+    await expect(page.locator('.fact-card').filter({ hasText: 'projects' }).locator('strong')).toHaveText(
       String(PROJECT_PAGES.length)
     );
   });

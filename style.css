@@ -456,6 +456,11 @@ main > section.content-panel:last-of-type {
   max-width: 640px;
 }
 
+/* project snapshots have no heading, so the figures start at the top */
+.summary-card > .fact-grid:first-child {
+  margin-top: 0;
+}
+
 .trust-pills,
 .chip-list,
 .project-tags,
@@ -516,28 +521,37 @@ main > section.content-panel:last-of-type {
   border-top: 1px solid var(--line);
 }
 
+/* Figures size to their own column (cqi), so a word like "Environment"
+   shrinks to fit a narrow tile instead of breaking mid-word. */
+.hero-stat,
+.metric,
+.fact-card,
+.stat-card {
+  container-type: inline-size;
+}
+
 .hero-stat strong,
 .metric strong,
 .fact-card strong,
-.fact-card dt,
 .stat-card strong {
   display: block;
   color: var(--ink);
   font-weight: 600;
   line-height: 1.1;
   letter-spacing: -0.01em;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 .fact-card strong,
-.fact-card dt,
 .metric strong {
-  font-size: clamp(1.5rem, 1.1rem + 1.2vw, 2.25rem);
+  font-size: 1.5rem;
+  font-size: clamp(1.25rem, 13cqi, 2.25rem);
 }
 
 .hero-stat strong,
 .stat-card strong {
-  font-size: clamp(2rem, 1.3rem + 1.8vw, 3rem);
+  font-size: 2rem;
+  font-size: clamp(1.75rem, 18cqi, 3rem);
   line-height: 1.05;
   letter-spacing: -0.015em;
 }
@@ -545,7 +559,6 @@ main > section.content-panel:last-of-type {
 .hero-stat span,
 .metric span,
 .fact-card span,
-.fact-card dd,
 .stat-card span {
   display: block;
   margin: 6px 0 0;
@@ -553,7 +566,32 @@ main > section.content-panel:last-of-type {
   font-size: 0.875rem;
   line-height: 1.43;
   letter-spacing: -0.016em;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+}
+
+/* In a definition list the term is the label and the description is the
+   value, so the emphasis flips: a small grey label over a bold value. */
+.fact-card dt {
+  color: var(--muted);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.43;
+  letter-spacing: -0.016em;
+}
+
+.fact-card dd {
+  margin: 4px 0 0;
+  color: var(--ink);
+  font-size: 1.1875rem;
+  font-size: clamp(1.0625rem, 8.5cqi, 1.3125rem);
+  font-weight: 600;
+  line-height: 1.24;
+  letter-spacing: 0.011em;
+  overflow-wrap: break-word;
+}
+
+.fact-card dd a {
+  color: var(--accent);
 }
 
 /* ---------- lists ---------- */
@@ -605,7 +643,7 @@ main > section.content-panel:last-of-type {
 
 .proof-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
   gap: 24px;
   margin-top: 28px;
 }
@@ -1060,6 +1098,17 @@ main > section.project-cta {
   margin-top: 32px;
 }
 
+.project-cta p.next-project {
+  margin: 28px 0 0;
+  color: var(--muted);
+  font-size: 1.0625rem;
+  line-height: 1.47;
+}
+
+.next-project a::after {
+  content: " \203A";
+}
+
 /* ---------- footer ---------- */
 footer {
   padding: 20px var(--band-inline) 28px;
@@ -1314,6 +1363,21 @@ main > section:first-of-type > :is(.premium-aside, .page-hero-aside, .summary-ca
   .pdf-frame,
   .contact-form {
     min-height: 480px;
+  }
+}
+
+/* a two-up fact grid leaves each figure under 130px on a phone */
+@media (max-width: 480px) {
+  .fact-grid,
+  .metric-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* the smallest phones: long headline words need a slightly smaller size */
+@media (max-width: 374px) {
+  h1 {
+    font-size: 2.375rem;
   }
 }
 
