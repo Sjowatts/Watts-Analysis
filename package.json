@@ -1,0 +1,14 @@
+{
+  "name": "watts-analysis",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "playwright test",
+    "test:live": "BASE_URL=https://sjowatts.github.io/Watts-Analysis/ playwright test",
+    "test:report": "playwright show-report",
+    "serve": "node tests/serve.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0"
+  }
+}
